@@ -1,15 +1,23 @@
+import { server } from '../config';
+
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+
+import Forecast from '../components/Forecast.js'
 import Current from '../components/Current.js'
-import { server } from '../config';
+import Daily from '../components/Daily.js'
 
 function Home({ data }) {
   return (
-    <div className={styles.container}>
-      <Current
-        data={data.current}
-        dewPointColor={getDewPointColor(data.current.dew_point)}
+    <div className="container">
+      <Forecast
+        city={'fake city name'}
+        isFindingLocation={false}
+        isLoadingWeather={false}
+        locationFailed={false}
+        units={'us'}
+        weather={data}
       />
     </div>
   )
@@ -22,11 +30,6 @@ export async function getServerSideProps() {
 
   // Pass data to the page via props
   return { props: { data } }
-}
-
-// Get color by dewpoint value
-const getDewPointColor = function(deg) {
-  return deg < 60 ? 'blue' : 'red'
 }
 
 export default Home

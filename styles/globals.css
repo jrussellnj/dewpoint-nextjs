@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.small-icon, .dewdrop-icon {
+  width: 15px;
+}
