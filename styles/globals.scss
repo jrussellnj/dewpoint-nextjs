@@ -1,0 +1,21 @@
+@import 'App.scss';
+@import 'Header.scss';
+@import 'Forecast.scss';
+@import 'CurrentlyBlock.scss';
+@import 'Footer.scss';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Lora', serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}

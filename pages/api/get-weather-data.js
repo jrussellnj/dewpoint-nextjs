@@ -1,7 +1,11 @@
 const request = require('request')
 
 export default async (req, res) => {
-  const url = `https://api.openweathermap.org/data/2.5/onecall?appid=${process.env.WEATHER_API_KEY}&lat=39.916279&lon=-75&exclude=hourly,minutely&units=imperial`
+  const { latitude, longitude, units } = req.query
+  console.log("lat,long", latitude, longitude, units)
+
+  const url = `https://api.openweathermap.org/data/2.5/onecall?appid=${process.env.WEATHER_API_KEY}&lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=imperial`
+  console.log("url", url)
   let weather
 
   await request(url, function (error, response, body) {
@@ -10,7 +14,7 @@ export default async (req, res) => {
       //console.log(weather)
     }
     else {
-      //console.log(response)
+      console.log(body)
     }
 
     res.setHeader('Content-Type', 'application/json');

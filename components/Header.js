@@ -1,4 +1,5 @@
 import React from 'react'
+// import './Header.module.scss'
 
 export default class Header extends React.Component {
 
@@ -16,7 +17,7 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <header className="row align-items-center">
+      <header className="header row align-items-center">
         <div className="col-12 col-md-6">
           <h1> <img className="dewdrop" src="/image/drop.svg" alt="Dew drop" /> Dew Point Forecast </h1>
         </div>

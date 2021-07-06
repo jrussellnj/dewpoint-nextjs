@@ -9,10 +9,10 @@ import Forecast from './Forecast';
 import Header from './Header';
 import Footer from './Footer';
 import ReactGA from 'react-ga';
-import '../styles/App.css';
+// import './App.module.scss';
 
 ReactGA.initialize('UA-124178989-1');
-ReactGA.pageview(window.location.pathname + window.location.search);
+//ReactGA.pageview(window.location.pathname + window.location.search);
 
 class App extends React.Component {
 
@@ -40,16 +40,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
         <div className="container">
-          <Switch>
-            <Route path="/*" children={<Header
-              getUserLocation={this.getUserLocation}
-              updateCoords={this.updateCoords}
-              units={this.state.units}
-              changeUnits={this.changeUnits} />
-            } />
-          </Switch>
+          <Header
+            getUserLocation={this.getUserLocation}
+            updateCoords={this.updateCoords}
+            units={this.state.units}
+            changeUnits={this.changeUnits} />
 
           <Forecast
             city={this.state.city}
@@ -61,7 +57,6 @@ class App extends React.Component {
 
           <Footer />
         </div>
-      </Router>
     );
   }
 
@@ -107,7 +102,7 @@ class App extends React.Component {
   /* Ask the server side to make an API call to Dark Sky to get the weather */
   getWeather(coords, units) {
     let that = this,
-        url = '/get-weather?longitude=' + coords.longitude + '&latitude=' + coords.latitude + '&units=' + units;
+        url = '/api/get-weather-data?longitude=' + coords.longitude + '&latitude=' + coords.latitude + '&units=' + units;
 
     this.setState({ 'isLoadingWeather': true });
 
@@ -133,13 +128,15 @@ class App extends React.Component {
   getCityName(coords) {
     let
       that = this,
-      geocodeUrl = 'https://maps.googleapis.com/maps/api/geocode/json?key=' + process.env.REACT_APP_GOOGLE_MAPS_API_KEY + '&latlng=' + coords.latitude + ',' + coords.longitude;
+      geocodeUrl = 'https://maps.googleapis.com/maps/api/geocode/json?key=' + process.env.NEXT_PUBLIC_GOOGLE_API_KEY + '&latlng=' + coords.latitude + ',' + coords.longitude;
 
     fetch(geocodeUrl)
       .then(results => {
         return results.json()
       })
       .then(data => {
+
+        console.log("DAAT!", data)
 
         let
           addressComponents = data.results[0].address_components,
@@ -156,7 +153,7 @@ class App extends React.Component {
 
           // Push onto the browser history stack
           const sanitizedAddressForUrl = sanitizedAddress.replace(/\s/g, '+');
-          this.props.history.push('/' + sanitizedAddressForUrl)
+          //this.props.history.push('/' + sanitizedAddressForUrl)
       });
   }
 
@@ -178,4 +175,5 @@ class App extends React.Component {
   }
 }
 
-export default withRouter(App);
+// export default withRouter(App);
+export default App

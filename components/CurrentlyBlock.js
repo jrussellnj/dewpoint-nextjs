@@ -1,4 +1,4 @@
-import styles from './CurrentlyBlock.module.scss'
+// import styles from './CurrentlyBlock.module.scss'
 
 export default function CurrentlyBlock({
   getDiscomfortLevel,
@@ -10,8 +10,10 @@ export default function CurrentlyBlock({
 
   const discomfortLevel = getDiscomfortLevel(weather.dew_point, units)
 
+  console.log("WEETHTHEHRERRR", weather)
+
   const blockBody = (weather === undefined ? null :
-    <div className={'p-3 inner-wrapper col-12 col-md-6 ' + styles[discomfortLevel.dpClass]}>
+    <div className={'p-3 inner-wrapper col-12 col-md-6 ' + discomfortLevel.dpClass}>
 
       <div className="currently-data">
         <p className="heading">{heading}</p>
@@ -23,7 +25,7 @@ export default function CurrentlyBlock({
 
         <div>
           <div className="weather-icon"><img className="small-icon" src="/image/thermometer.svg" alt="Thermometer" /></div>
-          <div className="weather-desc">Temperature: {Math.round(weather.temp)}&deg;</div>
+          <div className="weather-desc">Temperature: { typeof weather.temp === "number" ? Math.round(weather.temp) : Math.round(weather.temp.day)}&deg;</div>
         </div>
 
         <div>

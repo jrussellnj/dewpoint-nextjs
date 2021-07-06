@@ -1,7 +1,7 @@
 import CurrentlyBlock from './CurrentlyBlock.js';
 import DailyBlock from './DailyBlock.js';
 
-import './Forecast.module.scss';
+// import './Forecast.module.scss';
 
 export default function Forecast({
   city,
