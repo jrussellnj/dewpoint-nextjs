@@ -1,4 +1,3 @@
-import React from 'react';
 import CurrentlyBlock from './CurrentlyBlock.js';
 import DailyBlock from './DailyBlock.js';
 
@@ -25,26 +24,30 @@ export default function Forecast({
           units={units} />
 
         <CurrentlyBlock
-          weather={weather.current}
+          weather={weather.daily[0]}
           heading="Today's Forecast"
-          key={weather.current.dt}
+          key={weather.daily[0].dt}
           getDiscomfortLevel={getDiscomfortLevel}
           getValueByUnits={getValueByUnits}
           units={units} />
       </div>
     </div>;
 
+  console.log(weather)
   let dailyData = null
-  /*(weather == null ? null :
+
+  if (weather != null) {
+    dailyData =
     weather.daily.slice(1).map(day =>
       <DailyBlock
         day={day}
-        key={day.time}
+        key={day.dt}
         getDiscomfortLevel={getDiscomfortLevel}
         getValueByUnits={getValueByUnits}
         offset={weather.offset}
         units={units} />
-    ))*/
+    )
+  }
 
     return (
       <div>
