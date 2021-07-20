@@ -15,6 +15,9 @@ export async function getServerSideProps({ req, res, params }) {
   }*/
 
   console.log("req.headers.host", req.headers.host)
+  console.log("req.headers", req.headers)
+  console.log("req.secure", req.secure)
+  console.log("req.protocol", req.protocol)
 
   return { props: {} }
 }
