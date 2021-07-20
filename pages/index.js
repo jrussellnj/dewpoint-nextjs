@@ -14,10 +14,7 @@ export async function getServerSideProps({ req, res, params }) {
     res.setHeader('Location', `https://dewpoint.xyz`)
   }*/
 
-  console.log("req.headers.host", req.headers.host)
-  console.log("req.headers", req.headers)
-  console.log("req.secure", req.secure)
-  console.log("req.protocol", req.protocol)
+  console.log("req.headers['x-forwarded-proto']", req.headers['x-forwarded-proto'])
 
   return { props: {} }
 }
