@@ -9,12 +9,11 @@ function Home({ data }) {
 }
 
 export async function getServerSideProps({ req, res, params }) {
-  /*if (process.env.NODE_ENV == 'production' && I) {
+  if (process.env.NODE_ENV === 'production' && req.headers['x-forwarded-proto'] === 'http') {
+    console.log("fw to https")
     res.statusCode = 302
     res.setHeader('Location', `https://dewpoint.xyz`)
-  }*/
-
-  console.log("req.headers['x-forwarded-proto']", req.headers['x-forwarded-proto'])
+  }
 
   return { props: {} }
 }
