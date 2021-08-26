@@ -19,7 +19,7 @@ export default function DailyBlock( {
 
             <div className="temperature">
               <div className="date">
-                {format(fromUnixTime(thisDay.dt), 'LLLL do')}
+                {format(fromUnixTime(thisDay.dt), 'EEEE, LLLL do')}
               </div>
               <img className="dewdrop-icon" src="/image/drop-silhouette.svg" alt="Dew drop" /> {getValueByUnits(thisDay.dew_point, units)}&deg;
               <div className="discomfort-text">{discomfortLevel.text}</div>
