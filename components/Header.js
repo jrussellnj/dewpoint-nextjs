@@ -27,10 +27,6 @@ export default class Header extends React.Component {
             <input id="location-search" type="text" placeholder="Find dew point in another location..." onClick={(e) => this.clearContents(e)} />
             <button className="locate-me" onClick={this.props.getUserLocation}><img src="/image/target.svg" alt="Locating icon" /> Use my location</button>
           </div>
-
-          <div className="mb-2">
-            <button className="switch-units" onClick={this.props.changeUnits}>Change units to <span id="opposite-units"> {this.props.units === 'us' ? 'Celsius' : 'Fahrenheit'} </span></button>
-          </div>
         </div>
       </header>
     )
