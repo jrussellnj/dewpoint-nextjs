@@ -6,7 +6,6 @@ export default class Header extends React.Component {
   // Lifecycle methods
 
   componentDidMount() {
-    console.log("hey i, the header, mounted")
 
     // Connect the initLookup function within this class to the global window context, so Google Maps can invoke it
     window.initLookup = this.initLookup.bind(this);
@@ -26,6 +25,10 @@ export default class Header extends React.Component {
           <div>
             <input id="location-search" type="text" placeholder="Find dew point in another location..." onClick={(e) => this.clearContents(e)} />
             <button className="locate-me" onClick={this.props.getUserLocation}><img src="/image/target.svg" alt="Locating icon" /> Use my location</button>
+          </div>
+
+          <div className="mb-2">
+            <button className="switch-units" onClick={this.props.changeUnits}>Change units to <span id="opposite-units"> {this.props.units === 'imperial' ? 'Celsius' : 'Fahrenheit'} </span></button>
           </div>
         </div>
       </header>

@@ -24,7 +24,7 @@ class App extends React.Component {
     this.state = {
       city: null,
       coords: null,
-      units: 'us', // TODO: Set this based on a cookie
+      units: 'imperial', // TODO: Set this based on a cookie
       weather: null,
       isFindingLocation: false,
       isLoadingWeather: false,
@@ -136,8 +136,6 @@ class App extends React.Component {
       })
       .then(data => {
 
-        console.log("DAAT!", data)
-
         let
           addressComponents = data.results[0].address_components,
           localityPieces  = addressComponents.filter(n => [ 'neighborhood', 'locality', 'administrative_area_level_1', 'country' ].includes(n.types[0]) ),
@@ -160,7 +158,7 @@ class App extends React.Component {
   /* Switch the units between imperial and metric */
   changeUnits() {
     if (this.state.coords) {
-      this.getWeather(this.state.coords, (this.state.units === 'si' ? 'us' : 'si'));
+      this.getWeather(this.state.coords, (this.state.units === 'metric' ? 'imperial' : 'metric'));
     }
   }
 

@@ -10,8 +10,6 @@ export default function CurrentlyBlock({
 
   const discomfortLevel = getDiscomfortLevel(weather.dew_point, units)
 
-  console.log("WEETHTHEHRERRR", weather)
-
   const blockBody = (weather === undefined ? null :
     <div className={'p-3 inner-wrapper col-12 col-md-6 ' + discomfortLevel.dpClass}>
 

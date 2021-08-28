@@ -10,7 +10,7 @@ export default function DailyBlock( {
 } ) {
 
   const thisDay = day
-  const discomfortLevel = getDiscomfortLevel(day.dew_point, 'us')
+  const discomfortLevel = getDiscomfortLevel(day.dew_point, units)
 
     const blockBody = (thisDay === undefined ? null :
       <div className="col-11 col-sm-4 col-md-3 px-0 day">

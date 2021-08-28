@@ -33,7 +33,6 @@ export default function Forecast({
       </div>
     </div>;
 
-  console.log(weather)
   let dailyData = null
 
   if (weather != null) {
@@ -110,8 +109,8 @@ export default function Forecast({
 
     scale.forEach(function (value, i) {
       if (!levelIsFound) {
-        if ((units !== null && units === 'si' && dewpoint < value['c'])
-           || (((units !== null && units === 'us') || units === null) && dewpoint < value['f'])) {
+        if ((units !== null && units === 'metric' && dewpoint < value['c'])
+           || (((units !== null && units === 'imperial') || units === null) && dewpoint < value['f'])) {
           levelIsFound = true
           thisLevel = value;
         }
