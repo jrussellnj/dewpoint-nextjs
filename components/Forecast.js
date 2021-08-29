@@ -100,7 +100,7 @@ export default function Forecast({
       scale = [
         {'f': 50, 'c': 10, 'text': 'Pleasant', 'class': 'dp-level-1' },
         {'f': 55, 'c': 12.8, 'text': 'Comfortable', 'class': 'dp-level-1' },
-        {'f': 60, 'c': 15.6, 'text': 'Noticible', 'class': 'dp-level-2' },
+        {'f': 60, 'c': 15.6, 'text': 'Noticeable', 'class': 'dp-level-2' },
         {'f': 65, 'c': 18.3, 'text': 'Sticky', 'class': 'dp-level-3' },
         {'f': 70, 'c': 21.1, 'text': 'Uncomfortable', 'class': 'dp-level-4' },
         {'f': 75, 'c': 23.9, 'text': 'Oppressive', 'class': 'dp-level-5' },
